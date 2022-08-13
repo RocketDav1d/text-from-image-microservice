@@ -1,6 +1,6 @@
 from uuid import UUID, uuid4
 from fastapi import FastAPI, HTTPException
-from models import UpdateUser, User, Gender, Role, UpdateUser
+from delete.models import UpdateUser, User, Gender, Role, UpdateUser
 from typing import Optional, List
 
 
@@ -8,10 +8,10 @@ app = FastAPI()
 
 db: List[User] = [
     User(
-    id=UUID("c3c51040-2278-499e-88b0-55c007ea2a01"), 
-    first_name="David", 
-    last_name="Korn", 
-    gender=Gender.female, 
+    id=UUID("c3c51040-2278-499e-88b0-55c007ea2a01"),
+    first_name="David",
+    last_name="Korn",
+    gender=Gender.female,
     roles=[Role.student]
     ),
 
@@ -27,7 +27,7 @@ db: List[User] = [
 
 @app.get("/")
 async def root():
-    return {"hello": "Mundo"} 
+    return {"hello": "Mundo"}
 
 @app.get("/api/v1/users")
 async def fetch_users():
